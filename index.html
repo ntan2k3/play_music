@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Kdam+Thmor+Pro&family=Markazi+Text&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Music Player</title>
+</head>
+
+<body>
+    <div class="music-card">
+        <div class="music-card__image">
+            <img src="./image/image1.png" id="image">
+        </div>
+
+        <div class="music-card__text">
+            <h3 class="music-card__song" id="name">Meet you at the right time (lofi version)</h3>
+            <p class="music-card__author" id="author">Avi</p>
+        </div>
+
+        <div class="music-card__play">
+            <input type="range" name="song" class="music-card__line">
+            <audio src="./song/song1.mp3" id="song"></audio>
+            <div class="music-card__time">
+                <span class="left">0:00</span>
+                <span class="right">2:56</span>
+            </div>
+        </div>
+
+        <div class="music-card__actions">
+            <div class="music-card__btn">
+                <i class="fa fa-heart-o"></i>
+            </div>
+            <div class="music-card__btn play-back">
+                <i class="fa fa-step-backward"></i>
+            </div>
+            <div class="music-card__btn play-btn">
+                <i class="fa fa-play-circle"></i>
+            </div>
+            <div class="music-card__btn play-forward">
+                <i class="fa fa-step-forward"></i>
+            </div>
+            <div class="music-card__btn">
+                <i class="fa fa-retweet"></i>
+            </div>
+        </div>
+
+        <div class="music-card__quality">
+            <i class="material-icons">graphic_eq</i>
+            <span>Chất lượng âm thanh: Cơ bản</span>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
