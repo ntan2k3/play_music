@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding-top: 4px;
 }
 
 .music-card {
@@ -48,28 +48,21 @@ body {
 }
 
 .music-card__line {
+    width: 100%;
+    height: 4px;
     margin-top: 20px;
     margin-bottom: 8px;
     border-radius: 4px;
+    background: #acacac;
+    cursor: pointer;
 }
 
-.music-card__line {
-    -webkit-appearance: none;
-    width: 100%;
-    background: transparent;
-}
-
-.music-card__line::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 4px;
-    background-color: #acacac;
-}
-
-.music-card__line::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 4px;
-    width: 10px;
-    background-color: #fff;
+.line {
+    width: 0px;
+    height: 100%;
+    background: #fff;
+    border-radius: 4px;
+    transition: all 0.1s linear;
     cursor: pointer;
 }
 
