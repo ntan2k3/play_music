@@ -1,105 +1,68 @@
-const song = document.getElementById('song');
-const playBtn = document.querySelector('.play-btn');
-const nextBtn = document.querySelector('.play-forward');
-const prevBtn = document.querySelector('.play-back');
-const image = document.getElementById('image');
-const nameSong = document.getElementById('name');
-const authorSong = document.getElementById('author');
-const durationTime = document.querySelector('.right');
-const remainingTime = document.querySelector('.left');
-const repeatedBtn = document.querySelector('.play_again');
-const widthLine = document.querySelector('.music-card__line');
-let isPlaying = true;
-let indexSong = 0;
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Kdam+Thmor+Pro&family=Markazi+Text&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Music Player</title>
+</head>
 
-playBtn.addEventListener('click', playPause);
-song.addEventListener("ended", () => {
-    changeSong(1);
-})
+<body>
+    <div class="music-card">
+        <div class="music-card__image">
+            <img src="./image/image1.png" id="image">
+        </div>
 
-nextBtn.addEventListener('click', function() {
-    changeSong(1);
-});
+        <div class="music-card__text">
+            <h3 class="music-card__song" id="name">Meet you at the right time (lofi version)</h3>
+            <p class="music-card__author" id="author">Avi</p>
+        </div>
 
-repeatedBtn.addEventListener('click', function() {
-    changeSong(0);
-});
+        <div class="music-card__play">
+            <div class="music-card__line">
+                <audio src="./song/song1.mp3" id="song"></audio>
+            </div>
+            <div class="music-card__time">
+                <span class="left">0:00</span>
+                <span class="right">2:56</span>
+            </div>
+        </div>
 
-prevBtn.addEventListener('click', function() {
-    changeSong(-1);
-});
+        <div class="music-card__actions">
+            <div class="music-card__btn">
+                <i class="fa fa-heart-o"></i>
+            </div>
+            <div class="music-card__btn play-back">
+                <i class="fa fa-step-backward"></i>
+            </div>
+            <div class="music-card__btn play-btn">
+                <i class="fa fa-play-circle"></i>
+            </div>
+            <div class="music-card__btn play-forward">
+                <i class="fa fa-step-forward"></i>
+            </div>
+            <div class="music-card__btn play_again">
+                <i class="fa fa-retweet"></i>
+            </div>
+        </div>
 
-const images = ["image1.png", "image2.jpeg", "image3.jpg"];
-const musics = ["song1.mp3", "song2.mp3", "song3.mp3"];
-const names = ["Meet you at the right time (lofi version)", "Có hẹn với thanh xuân", "Đâu ai dám hứa"];
-const authors = ["Avi", "Monstar", "Czee"];
+        <div class="music-card__quality">
+            <i class="material-icons">graphic_eq</i>
+            <span>Chất lượng âm thanh: Cơ bản</span>
+        </div>
 
-function playPause() {
-    if (isPlaying) {
-        song.play();
-        playBtn.innerHTML = '<i class="fa fa-pause-circle play-btn"></i>';
-        isPlaying = false;
-    } else {
-        song.pause();
-        playBtn.innerHTML = '<i class="fa fa-play-circle play-btn"></i>'
-        isPlaying = true;
-    }
-}
+    </div>
 
-function changeSong(x) {
-    if (x === 1) {
-        // next song
-        indexSong++;
-        if (indexSong >= musics.length) {
-            indexSong = 0;
-        }
-        isPlaying = true;
-    } else if (x === -1) {
-        // previous song 
-        indexSong--;
-        if (indexSong < 0) {
-            indexSong = musics.length - 1;
-        }
-        isPlaying = true;
-    } else if (x === 0) {
-        // repeated song
-        repeatedBtn.style.color = 'white';
-        isPlaying = true;
-    }
-    song.setAttribute("src", `./song/${musics[indexSong]}`);
-    image.setAttribute("src", `./image/${images[indexSong]}`);
-    nameSong.innerHTML = names[indexSong];
-    authorSong.innerHTML = authors[indexSong];
-    playPause();
-}
+    <script src="app.js"></script>
+</body>
 
-
-function formatTimer(number) {
-    const minutes = Math.floor(number / 60);
-    const seconds = Math.floor(number - minutes * 60);
-    return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-}
-
-function displayTimer() {
-    const { duration, currentTime } = song;
-    remainingTime.textContent = formatTimer(currentTime);
-    if (!duration) {
-        durationTime.textContent = "0:00";
-    } else {
-        durationTime.textContent = formatTimer(duration);
-    }
-}
-
-song.addEventListener("timeupdate", (e) => {
-    const currentTime = e.target.currentTime;
-    const duration = e.target.duration;
-    let progressWidth = (currentTime / duration) * 100;
-    widthLine.style.width = `${progressWidth}%`;
-})
-
-
-
-displayTimer();
-
-setInterval(displayTimer, 1000);
+</html>
