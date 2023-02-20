@@ -9,6 +9,7 @@ const durationTime = document.querySelector('.right');
 const remainingTime = document.querySelector('.left');
 const repeatedBtn = document.querySelector('.play_again');
 const widthLine = document.querySelector('.music-card__line');
+const progressArea = document.querySelector('.music-card__play');
 let isPlaying = true;
 let indexSong = 0;
 
@@ -91,13 +92,16 @@ function displayTimer() {
     }
 }
 
-song.addEventListener("timeupdate", (e) => {
-    const currentTime = e.target.currentTime;
-    const duration = e.target.duration;
-    let progressWidth = (currentTime / duration) * 100;
+function progressLine() {
+    let progressWidth = (song.currentTime / song.duration) * 100;
     widthLine.style.width = `${progressWidth}%`;
-})
+}
 
+song.addEventListener("timeupdate", progressLine);
+
+progressArea.addEventListener('click', (e) => {
+    song.currentTime = (e.offsetX / progressArea.clientWidth) * song.duration;
+});
 
 
 displayTimer();
