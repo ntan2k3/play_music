@@ -44,26 +44,41 @@ body {
 }
 
 .music-card__play {
-    height: 20px;
-}
-
-.music-card__line {
+    height: 6px;
     width: 100%;
-    height: 4px;
-    margin-top: 20px;
-    margin-bottom: 8px;
-    border-radius: 4px;
+    border-radius: 50px;
     background: #acacac;
     cursor: pointer;
 }
 
-.line {
-    width: 0px;
-    height: 100%;
+.music-card__line {
+    height: inherit;
+    position: relative;
+    width: 0%;
+    border-radius: inherit;
     background: #fff;
-    border-radius: 4px;
-    transition: all 0.1s linear;
-    cursor: pointer;
+    margin-top: 10px;
+}
+
+.music-card__line::before {
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    z-index: 2;
+    opacity: 0;
+    top: 50%;
+    right: -5px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translateY(-50%);
+    background: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.music-card__play:hover .music-card__line::before {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .music-card__time {
@@ -71,6 +86,7 @@ body {
     justify-content: space-between;
     font-size: 10px;
     color: #fff;
+    margin-top: 8px;
 }
 
 .music-card__actions {
