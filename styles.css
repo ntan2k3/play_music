@@ -74,6 +74,7 @@ body {
     transform: translateY(-50%);
     background: inherit;
     transition: opacity 0.2s ease;
+    overflow: hidden;
 }
 
 .music-card__play:hover .music-card__line::before {

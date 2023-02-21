@@ -23,18 +23,18 @@ nextBtn.addEventListener('click', function() {
     changeSong(1);
 });
 
-repeatedBtn.addEventListener('click', function() {
-    changeSong(0);
-});
+// repeatedBtn.addEventListener('click', function() {
+// });
+
 
 prevBtn.addEventListener('click', function() {
     changeSong(-1);
 });
 
-const images = ["image1.png", "image2.jpeg", "image3.jpg"];
-const musics = ["song1.mp3", "song2.mp3", "song3.mp3"];
-const names = ["Meet you at the right time (lofi version)", "Có hẹn với thanh xuân", "Đâu ai dám hứa"];
-const authors = ["Avi", "Monstar", "Czee"];
+const images = ["image1.png", "image2.jpeg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg", "image7.jpeg", "image8.jpg", "image9.jpg", "image10.jpeg"];
+const musics = ["song1.mp3", "song2.mp3", "song3.mp3", "song4.mp3", "song5.mp3", "song6.mp3", "song7.mp3", "song8.mp3", "song9.mp3", "song10.mp3"];
+const names = ["Meet you at the right time (lofi version)", "Có hẹn với thanh xuân", "Đâu ai dám hứa", "Xuân thì", "Chạy khỏi thế giới này", "Vào hạ", "Giữa đại lộ đông tây", "Mặt mộc", "Tình yêu chậm trễ", "3107-3"];
+const authors = ["Avi", "Monstar", "Czee", "Hà Anh Tuấn", "Da LAB, Phương Ly", "Suni Hạ Linh", "Uyên Linh", "Phạm Nguyên Ngọc, VAnh, Ân Nhi, BMZ", "MONSTAR", "W/N, Duong, Nau, titie"];
 
 function playPause() {
     if (isPlaying) {
@@ -62,10 +62,6 @@ function changeSong(x) {
         if (indexSong < 0) {
             indexSong = musics.length - 1;
         }
-        isPlaying = true;
-    } else if (x === 0) {
-        // repeated song
-        repeatedBtn.style.color = 'white';
         isPlaying = true;
     }
     song.setAttribute("src", `./song/${musics[indexSong]}`);
