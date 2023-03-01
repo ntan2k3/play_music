@@ -6,19 +6,16 @@
 }
 
 body {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 4px;
 }
 
 .music-card {
-    width: 400px;
+    width: 100%;
+    height: 100vh;
     background-color: rgb(113, 113, 113);
     padding: 40px;
-    border-radius: 4px;
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .music-card__image {
@@ -36,6 +33,8 @@ body {
 
 .music-card__text {
     color: #fff;
+    width: 320px;
+    margin: 0 auto;
 }
 
 .music-card__song {
@@ -45,10 +44,11 @@ body {
 
 .music-card__play {
     height: 6px;
-    width: 100%;
+    width: 320px;
     border-radius: 50px;
     background: #acacac;
     cursor: pointer;
+    margin: 0 auto;
 }
 
 .music-card__line {
@@ -83,11 +83,12 @@ body {
 }
 
 .music-card__time {
+    width: 320px;
     display: flex;
     justify-content: space-between;
     font-size: 10px;
     color: #fff;
-    margin-top: 8px;
+    margin: 8px auto 0 auto;
 }
 
 .music-card__actions {
